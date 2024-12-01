@@ -7,11 +7,11 @@
   <style>
     /* CSS styles based on the provided color palette */
     :root {
-      --color-ivory: #F0F0F0;
-      --color-nude: #E7D9CA;
-      --color-terracotta: #BB8C66;
+      --color-ivory: #f5f2ed;
+      --color-nude: #ffffff;
+      --color-terracotta: #778c43;
       --color-cool-sage: #87917E;
-      --color-warm-black: #241F19;
+      --color-warm-black: #333333;
     }
 
     * {
@@ -28,14 +28,20 @@
 
     header {
       background-color: var(--color-ivory);
-      height: 10vh;
+      height: 20vh;
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
+    header img {
+      height: 100%;
+      max-width: 500px;
+    }
+
     .hero {
       padding: 4rem;
+      padding-top: 1rem;
       text-align: center;
     }
 
@@ -51,7 +57,7 @@
       margin-bottom: 2rem;
     }
 
-    .hero button {
+    button {
       background-color: var(--color-terracotta);
       color: #fff;
       padding: 0.75rem 1.5rem;
@@ -62,7 +68,7 @@
       transition: background-color 0.3s ease;
     }
 
-    .hero button:hover {
+    button:hover {
       background-color: #D17A00;
     }
 
@@ -96,6 +102,11 @@
       margin-bottom: 1rem;
     }
 
+    .services-icon {
+      font-size: 6rem; /* Aumento del tamaño de los íconos */
+      margin-bottom: 1rem;
+    }
+
     .portfolio {
       padding: 4rem;
       text-align: center;
@@ -109,7 +120,7 @@
 
     .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(2, 1fr); /* Dos columnas por defecto */
       grid-gap: 2rem;
     }
 
@@ -117,13 +128,25 @@
       position: relative;
       overflow: hidden;
       border-radius: 0.5rem;
+      width: 100%; /* Ajusta al contenedor */
+      padding-top: 75%; /* Mantiene proporción 4:3 (300px ancho x 225px alto) */
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .portfolio-grid img {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: auto;
-      display: block;
+      height: 100%;
+      object-fit: cover; /* Mantener proporciones de la imagen */
       transition: transform 0.3s ease;
+    }
+
+    .portfolio-grid > div:hover img {
+      transform: scale(1.1); /* Efecto hover */
     }
 
     .portfolio-grid .overlay {
@@ -132,22 +155,58 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(var(--color-warm-black), 0.5);
+      background-color: rgba(51, 51, 51, 0.7);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       color: #fff;
+      text-align: center;
+      padding: 1rem;
       opacity: 0;
       transition: opacity 0.3s ease;
     }
 
     .portfolio-grid > div:hover .overlay {
-      opacity: 1;
+      opacity: 1; /* Muestra la superposición */
     }
 
-    .portfolio-grid > div:hover img {
-      transform: scale(1.1);
+    .portfolio-grid .overlay h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .portfolio-grid .overlay p {
+      font-size: 1rem;
+    }
+
+    /* Media Queries */
+    @media (max-width: 1024px) {
+      .portfolio-grid {
+        grid-template-columns: 1fr; /* Una columna en pantallas medianas */
+      }
+    }
+
+    @media (max-width: 768px) {
+      .portfolio {
+        padding: 2rem; /* Menor padding */
+      }
+
+      .portfolio h2 {
+        font-size: 1.5rem;
+      }
+
+      .portfolio-grid > div {
+        padding-top: 100%; /* Más cuadrado en pantallas pequeñas */
+      }
+
+      .portfolio-grid .overlay h3 {
+        font-size: 1.2rem;
+      }
+
+      .portfolio-grid .overlay p {
+        font-size: 0.9rem;
+      }
     }
 
     .about {
@@ -166,9 +225,9 @@
     }
 
     .about-content img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
+      width: 600px;
+      height: 500px;
+      border-radius: 15px;
       object-fit: cover;
     }
 
@@ -219,21 +278,6 @@
       font-size: 1rem;
     }
 
-    .contact form button {
-      background-color: var(--color-terracotta);
-      color: #fff;
-      padding: 1rem 2rem;
-      border: none;
-      border-radius: 0.5rem;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .contact form button:hover {
-      background-color: #D17A00;
-    }
-
     footer {
       background-color: var(--color-warm-black);
       color: #fff;
@@ -255,19 +299,34 @@
     footer a:hover {
       color: #D17A00;
     }
+
+    .video-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem;
+    }
+
+    .video-section video {
+      max-width: 100%;
+      height: auto;
+    }
+
   </style>
 </head>
 <body>
+
   <header>
-    <!-- Logo video placeholder -->
-    <div>Logo Video Placeholder</div>
+    <img src="img/logo.png" alt="Logo Isabela Orozco">
   </header>
 
   <main>
     <section class="hero">
       <h1>Arquitectura colaborativa: Apoyo flexible para tus proyectos</h1>
       <h2>Modelado BIM 3D | Visualización Arquitectónica | Planos Técnicos</h2>
-      <button>Ver Portafolio</button>
+      <a href="img/PORTAF.ISABELA.pdf" target="_blank">
+        <button>Ver Portafolio</button>
+      </a>
     </section>
 
     <section class="services">
@@ -291,39 +350,42 @@
       </div>
     </section>
 
-    <section class="portfolio">
-      <h2>Algunos de mis proyectos</h2>
-      <div class="portfolio-grid">
+<section class="portfolio">
+  <h2>Algunos Proyectos</h2>
+  <div class="portfolio-grid">
         <div>
-          <img src="/api/placeholder/400/300" alt="Proyecto X">
+          <img src="img/RENDER1.png" alt="Proyecto X">
           <div class="overlay">
-            <h3>Proyecto X</h3>
-            <p>Colaboración con oficina Z</p>
+            <h3>VIZUALIZACIÓN</h3>
+            <p>Visualización</p>
           </div>
         </div>
         <div>
-          <img src="/api/placeholder/400/300" alt="Proyecto Y">
+          <img src="img/PLANTA.png" alt="Proyecto Y">
           <div class="overlay">
-            <h3>Proyecto Y</h3>
-            <p>Diseño residencial moderno</p>
+            <h3>PLANOS TÉCNICOS</h3>
+            <p>Planimetria</p>
           </div>
         </div>
         <div>
-          <img src="/api/placeholder/400/300" alt="Proyecto Z">
+          <img src="img/RENDER2.jpg" alt="Proyecto Z">
           <div class="overlay">
-            <h3>Proyecto Z</h3>
-            <p>Concepto de espacio comercial</p>
+            <h3>DISEÑO</h3>
+            <p>Vivienda Rural</p>
           </div>
         </div>
         <div>
-          <img src="/api/placeholder/400/300" alt="Proyecto A">
+          <img src="img/ISOMETRICO.png" alt="Proyecto A">
           <div class="overlay">
-            <h3>Proyecto A</h3>
-            <p>Propuesta urbana</p>
+            <h3>MODELADO BIM</h3>
+            <p>Agrupacion de vivienda</p>
           </div>
         </div>
-      </div>
-      <button>Ver más proyectos</button>
+  </div>
+<br>
+      <a href="img/PORTAF.ISABELA.pdf" target="_blank">
+        <button>Ver más proyectos</button>
+      </a>
     </section>
 
     <section class="about">
@@ -334,6 +396,13 @@
           <p>Soy arquitecta freelance con experiencia en modelado BIM 3D, visualización y desarrollo de planos técnicos. Ofrezco soluciones flexibles y creativas para proyectos de baja y mediana escala.</p>
         </div>
       </div>
+    </section>
+
+    <section class="video-section">
+      <video autoplay loop muted>
+        <source src="img/CLIP.mp4" type="video/mp4">
+        Tu navegador no soporta este formato de video.
+      </video>
     </section>
 
     <section class="contact">
