@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Isabela Orozco Portfolio</title>
+  <style>
+    /* CSS styles based on the provided color palette */
+    :root {
+      --color-ivory: #f5f2ed;
+      --color-nude: #ffffff;
+      --color-terracotta: #778c43;
+      --color-cool-sage: #87917E;
+      --color-warm-black: #333333;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+main {
+  max-width: 1200px; /* Ajusta el valor según lo que prefieras */
+  margin: 0 auto; /* Centra el contenido */
+  padding: 0 2rem; /* Añade algo de espacio en los bordes */
+}
+
+    body {
+      background-color: var(--color-ivory);
+      color: var(--color-warm-black);
+    }
+
+    header {
+      background-color: var(--color-ivory);
+      height: 20vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    header img {
+      height: 100%;
+      max-width: 500px;
+    }
+
+    .hero {
+      padding: 4rem;
+      padding-top: 1rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .hero h2 {
+      font-size: 1.5rem;
+      color: var(--color-cool-sage);
+      margin-bottom: 2rem;
+    }
+
+    button {
+      background-color: var(--color-terracotta);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #D17A00;
+    }
+
+    .services {
+      background-color: var(--color-nude);
+      padding: 4rem;
+      text-align: center;
+    }
+
+    .services h2 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 3rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2rem;
+    }
+
+    .services-grid > div {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .services-grid h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .services-icon {
+      font-size: 6rem; /* Aumento del tamaño de los íconos */
+      margin-bottom: 1rem;
+    }
+
+    .portfolio {
+      padding: 4rem;
+      text-align: center;
+    }
+
+    .portfolio h2 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 3rem;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* Dos columnas por defecto */
+      grid-gap: 2rem;
+    }
+
+    .portfolio-grid > div {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.5rem;
+      width: 100%; /* Ajusta al contenedor */
+      padding-top: 75%; /* Mantiene proporción 4:3 (300px ancho x 225px alto) */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .portfolio-grid img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Mantener proporciones de la imagen */
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-grid > div:hover img {
+      transform: scale(1.1); /* Efecto hover */
+    }
+
+    .portfolio-grid .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(51, 51, 51, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-grid > div:hover .overlay {
+      opacity: 1; /* Muestra la superposición */
+    }
+
+    .portfolio-grid .overlay h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .portfolio-grid .overlay p {
+      font-size: 1rem;
+    }
+
+    /* Media Queries */
+    @media (max-width: 1024px) {
+      .portfolio-grid {
+        grid-template-columns: 1fr; /* Una columna en pantallas medianas */
+      }
+    }
+
+    @media (max-width: 768px) {
+      .portfolio {
+        padding: 2rem; /* Menor padding */
+      }
+
+      .portfolio h2 {
+        font-size: 1.5rem;
+      }
+
+      .portfolio-grid > div {
+        padding-top: 100%; /* Más cuadrado en pantallas pequeñas */
+      }
+
+      .portfolio-grid .overlay h3 {
+        font-size: 1.2rem;
+      }
+
+      .portfolio-grid .overlay p {
+        font-size: 0.9rem;
+      }
+    }
+
+    .about {
+      background-color: var(--color-nude);
+      padding: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-content {
+      max-width: 800px;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .about-content img {
+      width: 600px;
+      height: 500px;
+      border-radius: 15px;
+      object-fit: cover;
+    }
+
+    .about-content h2 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .about-content p {
+      font-size: 1.2rem;
+      color: var(--color-cool-sage);
+    }
+
+    .contact {
+      padding: 4rem;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+
+    .contact-info {
+      margin-bottom: 2rem;
+    }
+
+    .contact-info p {
+      font-size: 1.2rem;
+      color: var(--color-cool-sage);
+      margin-bottom: 0.5rem;
+    }
+
+    .contact form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .contact form input,
+    .contact form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid var(--color-cool-sage);
+      border-radius: 0.5rem;
+      font-size: 1rem;
+    }
+
+    footer {
+      background-color: var(--color-warm-black);
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+      width: 100%;
+      position: absolute;
+      bottom: 100;
+      left: 0;
+    }
+
+    footer p {
+      font-size: 1rem;
+    }
+
+    footer a {
+      color: var(--color-terracotta);
+      text-decoration: none;
+      margin: 0 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    a {
+      color: var(--color-warm-black);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #D17A00;
+    }
+
+    .video-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem;
+    }
+
+    .video-section video {
+      max-width: 100%;
+      height: auto;
+    }
+.social-links a i {
+  font-size: 2.5rem;
+  color: #778c43; /* Color deseado */
+}
+
+  
+    @media (max-width: 600px) {
+        header {
+            height: 15vh;
+        }
+        header img {
+            max-width: 300px;
+        }
+        .hero h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        .hero h2 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        button {
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+        }
+        .services-grid, .portfolio-grid {
+            grid-template-columns: 1fr; /* Single column for mobile */
+        }
+        .services-grid > div, .portfolio-grid > div {
+            padding: 1rem;
+        }
+        .about-content {
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .about-content img {
+            width: 100%;
+            height: auto;
+        }
+        footer {
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+    }
+</style>
+</head>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<body>
+
+  <header>
+    <img src="img/LOGO.png" alt="Logo Isabela Orozco">
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Arquitectura colaborativa: Apoyo flexible para tus proyectos</h1>
+      <h2>Modelado BIM 3D | Visualización Arquitectónica | Planos Técnicos</h2>
+      <a href="img/PORTAF.ISABELA.pdf" target="_blank">
+        <button>Ver Portafolio</button>
+      </a>
+    </section>
+
+    <section class="services">
+      <h2>Mis Servicios</h2>
+      <div class="services-grid">
+        <div>
+          <div class="services-icon">🏗️</div>
+          <h3>Modelado BIM 3D</h3>
+          <p>Elaborar modelos detallados que optimicen la gestión de tus proyectos.</p>
+        </div>
+        <div>
+          <div class="services-icon">🖼️</div>
+          <h3>Visualización Arquitectónica</h3>
+          <p>Crea imágenes y recorridos virtuales de alta calidad para dar vida a las ideas de tu equipo.</p>
+        </div>
+        <div>
+          <div class="services-icon">📐</div>
+          <h3>Desarrollo de Planos Técnicos</h3>
+          <p>Desarrollar planos precisos y detallados que acompañarán cada fase de tu proyecto.</p>
+        </div>
+      </div>
+    </section>
+
+<section class="portfolio">
+  <h2>Algunos Proyectos</h2>
+  <div class="portfolio-grid">
+        <div>
+          <img src="img/RENDER1.png" alt="Proyecto X">
+          <div class="overlay">
+            <h3>VIZUALIZACIÓN</h3>
+            <p>Visualización</p>
+          </div>
+        </div>
+        <div>
+          <img src="img/PLANTA.png" alt="Proyecto Y">
+          <div class="overlay">
+            <h3>PLANOS TÉCNICOS</h3>
+            <p>Planimetria</p>
+          </div>
+        </div>
+        <div>
+          <img src="img/RENDER2.jpg" alt="Proyecto Z">
+          <div class="overlay">
+            <h3>DISEÑO</h3>
+            <p>Vivienda Rural</p>
+          </div>
+        </div>
+        <div>
+          <img src="img/ISOMETRICO.png" alt="Proyecto A">
+          <div class="overlay">
+            <h3>MODELADO BIM</h3>
+            <p>Agrupacion de vivienda</p>
+          </div>
+        </div>
+  </div>
+<br>
+      <a href="img/PORTAF.ISABELA.pdf" target="_blank">
+        <button>Ver más proyectos</button>
+      </a>
+    </section>
+
+    <section class="about">
+      <div class="about-content">
+        <img src="img/PROFILE.jpg" alt="Isabela Orozco">
+        <div>
+          <h2>¡Hola! Soy Isabela Orozco</h2>
+          <p>Soy arquitecta freelance con experiencia en modelado BIM 3D, visualización y desarrollo de planos técnicos. Ofrezco soluciones flexibles y creativas para proyectos de baja y mediana escala.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="video-section">
+      <video autoplay loop muted>
+        <source src="img/CLIP.mp4" type="video/mp4">
+        Tu navegador no soporta este formato de video.
+      </video>
+    </section>
+
+    <section class="contact">
+      <h2>Contacto</h2>
+      <div class="contact-info">
+        <p><strong>Isabela Orozco Zuluaga</strong></p>
+        <p><a href="mailto:isabelarqui11@gmail.com">isabelarqui11@gmail.com</a></p>
+        <p><a href="tel:+34611338600">+34 611 33 86 00</a></p>
+        <p>Gijón, España</p>
+      </div>
+
+<div class="social-links">
+  <a href="https://www.instagram.com/arch_isabella/" target="_blank">
+    <i class="fab fa-instagram" style="font-size: 2.5rem;"></i> <!-- Icono de Instagram -->
+  </a>
+  <a href="https://www.linkedin.com/in/isabela-orozco-zuluaga-545ab0250/?originalSubdomain=es" target="_blank">
+    <i class="fab fa-linkedin" style="font-size: 2.5rem;"></i> <!-- Icono de LinkedIn -->
+  </a>
+</div>
+
+    </section>
+
+  <footer>
+    <p>&copy; 2024 Isabela Orozco. Todos los derechos reservados.</p>
+    <div>
+    </div>
+  </footer>
+</body>
+</html>
