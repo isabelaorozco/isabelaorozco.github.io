@@ -22,7 +22,7 @@
     }
 
 main {
-  max-width: 1200px; /* Ajusta el valor según lo que prefieras */
+  max-width: 1500px; /* Ajusta el valor según lo que prefieras */
   margin: 0 auto; /* Centra el contenido */
   padding: 0 2rem; /* Añade algo de espacio en los bordes */
 }
@@ -34,15 +34,27 @@ main {
 
     header {
       background-color: var(--color-ivory);
-      height: 20vh;
+      height: 25vh;
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
-    header img {
-      height: 100%;
-      max-width: 500px;
+     header .header-content {
+       position: absolute;
+       top: 60px; /* Ajusta la posición del texto */
+       left: 50%;
+       transform: translateX(-50%);
+       text-align: center;
+       z-index: 2;
+}
+
+    header .header-content h1 {
+      font-size: 3.0rem;
+      color: var(--color-warm-black);
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+
     }
 
     .hero {
@@ -439,7 +451,8 @@ main {
 <body>
 
   <header>
-    <img src="img/LOGO.png" alt="Logo Isabela Orozco">
+  <div class="header-content">
+    <h1>Arquitectura colaborativa: Apoyo flexible para tus proyectos</h1>
   </header>
 
   <section class="welcome-image">
@@ -448,34 +461,39 @@ main {
 
   <main>
     <section class="hero">
-      <h1>Arquitectura colaborativa: Apoyo flexible para tus proyectos</h1>
+      <h1>Arquitectura</h1>
       <h2>Modelado BIM 3D | Visualización Arquitectónica | Planos Técnicos</h2>
       <a href="img/PORTAF.ISABELA.pdf" target="_blank">
         <button>Ver Portafolio</button>
       </a>
     </section>
 
-    <section class="services">
-      <h2>Mis Servicios</h2>
-      <div class="services-grid">
-        <div>
-          <div class="services-icon">🏗️</div>
-          <h3>Modelado BIM 3D</h3>
-          <p>Elaborar modelos detallados que optimicen la gestión de tus proyectos.</p>
-        </div>
-        <div>
-          <div class="services-icon">🖼️</div>
-          <h3>Visualización Arquitectónica</h3>
-          <p>Crea imágenes y recorridos virtuales de alta calidad para dar vida a las ideas de tu equipo.</p>
-        </div>
-        <div>
-          <div class="services-icon">📐</div>
-          <h3>Desarrollo de Planos Técnicos</h3>
-          <p>Desarrollar planos precisos y detallados que acompañarán cada fase de tu proyecto.</p>
-        </div>
+<section class="services">
+  <h2>Mis Servicios</h2>
+  <div class="services-grid">
+    <div>
+      <div class="services-icon">
+        <i class="fas fa-cogs"></i> <!-- Icono para Modelado BIM -->
       </div>
-    </section>
-
+      <h3>Modelado BIM 3D</h3>
+      <p>Elaborar modelos detallados que optimicen la gestión de tus proyectos.</p>
+    </div>
+    <div>
+      <div class="services-icon">
+        <i class="fas fa-eye"></i> <!-- Icono para Visualización -->
+      </div>
+      <h3>Visualización Arquitectónica</h3>
+      <p>Crea imágenes y recorridos virtuales de alta calidad para dar vida a las ideas de tu equipo.</p>
+    </div>
+    <div>
+      <div class="services-icon">
+        <i class="fas fa-pencil-alt"></i> <!-- Icono para Planos Técnicos -->
+      </div>
+      <h3>Desarrollo de Planos Técnicos</h3>
+      <p>Desarrollar planos precisos y detallados que acompañarán cada fase de tu proyecto.</p>
+    </div>
+  </div>
+</section>
 <section class="portfolio">
   <h2>Algunos Proyectos</h2>
   <div class="portfolio-grid">
@@ -508,31 +526,45 @@ main {
           </div>
         </div>
         <div>
-          <img src="img/BOUTIQUE.jpg" alt="Proyecto X">
+          <img src="img/M.BOARD1.PNG" alt="Proyecto X">
           <div class="overlay">
             <h3>VIZUALIZACIÓN</h3>
             <p>Visualización e infografías</p>
           </div>
         </div>
         <div>
-          <img src="img/FabricaSocial.png" alt="Proyecto Y">
+          <img src="img/M.BOARD2.PNG" alt="Proyecto Y">
           <div class="overlay">
             <h3>PLANOS TÉCNICOS</h3>
             <p>Planimetría</p>
           </div>
         </div>
         <div>
-          <img src="img/PATIO.png" alt="Proyecto Z">
+          <img src="img/BOUTIQUE.jpg" alt="Proyecto Z">
           <div class="overlay">
             <h3>DISEÑO</h3>
             <p>Diseño Arquitectónico</p>
           </div>
         </div>
         <div>
-          <img src="img/ISOMETRICO.png" alt="Proyecto A">
+          <img src="img/CORTE.png" alt="Proyecto A">
           <div class="overlay">
             <h3>MODELADO BIM</h3>
             <p>REVIT</p>
+          </div>
+        </div>
+        <div>
+          <img src="img/PUBLIC.SPACE.png" alt="Proyecto Y">
+          <div class="overlay">
+            <h3>PLANOS TÉCNICOS</h3>
+            <p>Planimetría</p>
+          </div>
+        </div>
+        <div>
+          <img src="img/PLANTA.URB.png" alt="Proyecto Z">
+          <div class="overlay">
+            <h3>DISEÑO</h3>
+            <p>Diseño Arquitectónico</p>
           </div>
         </div>
   </div>
