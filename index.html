@@ -32,21 +32,32 @@ main {
       color: var(--color-warm-black);
     }
 
-    header {
-      background-color: var(--color-ivory);
-      height: 25vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+header {
+  background-color: var(--color-ivory);
+  height: 0vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
 
-     header .header-content {
-       position: absolute;
-       top: 60px; /* Ajusta la posición del texto */
-       left: 50%;
-       transform: translateX(-50%);
-       text-align: center;
-       z-index: 2;
+.header-content {
+  position: absolute;
+  top: 50%; /* Ajustar la posición vertical */
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente */
+  padding: 1rem 2rem;
+  border-radius: 10px; /* Opcional, para suavizar bordes */
+}
+
+.header-content h1 {
+  font-size: 3.0rem;
+  color: var(--color-warm-black);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
     header .header-content h1 {
@@ -452,11 +463,10 @@ main {
 
   <header>
   <div class="header-content">
-    <h1>Arquitectura colaborativa: Apoyo flexible para tus proyectos</h1>
   </header>
 
   <section class="welcome-image">
-    <img src="img/PORTADA2.PNG" alt="Bienvenida">
+    <img src="img/PORTADA2.2.PNG" alt="Bienvenida">
   </section>
 
   <main>
