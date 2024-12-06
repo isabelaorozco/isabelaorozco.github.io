@@ -67,7 +67,25 @@ header {
       margin-bottom: 0.5rem;
 
     }
+section.welcome-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Evita que la imagen salga del contenedor */
+  height: 50vh; /* Ajusta el tamaño del contenedor, por ejemplo, la mitad de la altura de la pantalla */
+}
 
+section.welcome-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen mantenga sus proporciones al rellenar el contenedor */
+}
+
+@media (max-width: 768px) {
+  section.welcome-image {
+    height: 30vh; /* Reduce la altura en dispositivos más pequeños */
+  }
+}
     .hero {
       padding: 4rem;
       padding-top: 1rem;
@@ -465,9 +483,9 @@ header {
   <div class="header-content">
   </header>
 
-  <section class="welcome-image">
-    <img src="img/PORTADA2.2.png" alt="Bienvenida">
-  </section>
+<section class="welcome-image">
+  <img src="img/PORTADA2.2.png" alt="Bienvenida">
+</section>
 
   <main>
     <section class="hero">
